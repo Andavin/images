@@ -14,4 +14,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "images"
 
-include("core", "paper", "minestom")
+include("core", "paper")
