@@ -2,6 +2,14 @@ plugins {
     id("images.shadow-conventions")
 }
 
+images {
+    javaRelease = 8
+}
+
+java {
+    disableAutoTargetJvm()
+}
+
 dependencies {
     implementation(project(":core"))
     compileOnly(libs.paper.api)
