@@ -1,0 +1,11 @@
+[versions]
+kotlin = "2.4.21"
+shadow = "9.6.1"
+paper = "26.3.build.205-stable"
+minestom = "2026.10.07-26.2"
+
+[libraries]
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+shadow-gradle-plugin = { module = "com.gradleup.shadow:shadow-gradle-plugin", version.ref = "shadow" }
+paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper" }
+minestom = { module = "net.minestom:minestom", version.ref = "minestom" }

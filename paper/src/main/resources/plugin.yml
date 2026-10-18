@@ -1,0 +1,5 @@
+name: Images
+version: '${version}'
+main: com.andavin.images.paper.ImagesPlugin
+authors: [ 'Andavin' ]
+api-version: '26.3'
