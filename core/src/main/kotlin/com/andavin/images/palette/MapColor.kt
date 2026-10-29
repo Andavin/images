@@ -1,0 +1,76 @@
+package com.andavin.images.palette
+
+import java.awt.Color
+
+/**
+ * The base colors of vanilla's `net.minecraft.world.level.material.MapColor`,
+ * declared in ID order so each ordinal is the vanilla ID. Each appears on a map
+ * in four [Shades][Shade].
+ *
+ * Checked against the 26.3 server jar; also listed at
+ * https://minecraft.wiki/w/Map_item_format#Base_colors.
+ */
+internal enum class MapColor(val color: Color) {
+    NONE(Color(0, true)),
+    GRASS(Color(0x7FB238)),
+    SAND(Color(0xF7E9A3)),
+    WOOL(Color(0xC7C7C7)),
+    FIRE(Color(0xFF0000)),
+    ICE(Color(0xA0A0FF)),
+    METAL(Color(0xA7A7A7)),
+    PLANT(Color(0x007C00)),
+    SNOW(Color(0xFFFFFF)),
+    CLAY(Color(0xA4A8B8)),
+    DIRT(Color(0x976D4D)),
+    STONE(Color(0x707070)),
+    WATER(Color(0x4040FF)),
+    WOOD(Color(0x8F7748)),
+    QUARTZ(Color(0xFFFCF5)),
+    COLOR_ORANGE(Color(0xD87F33)),
+    COLOR_MAGENTA(Color(0xB24CD8)),
+    COLOR_LIGHT_BLUE(Color(0x6699D8)),
+    COLOR_YELLOW(Color(0xE5E533)),
+    COLOR_LIGHT_GREEN(Color(0x7FCC19)),
+    COLOR_PINK(Color(0xF27FA5)),
+    COLOR_GRAY(Color(0x4C4C4C)),
+    COLOR_LIGHT_GRAY(Color(0x999999)),
+    COLOR_CYAN(Color(0x4C7F99)),
+    COLOR_PURPLE(Color(0x7F3FB2)),
+    COLOR_BLUE(Color(0x334CB2)),
+    COLOR_BROWN(Color(0x664C33)),
+    COLOR_GREEN(Color(0x667F33)),
+    COLOR_RED(Color(0x993333)),
+    COLOR_BLACK(Color(0x191919)),
+    GOLD(Color(0xFAEE4D)),
+    DIAMOND(Color(0x5CDBD5)),
+    LAPIS(Color(0x4A80FF)),
+    EMERALD(Color(0x00D93A)),
+    PODZOL(Color(0x815631)),
+    NETHER(Color(0x700200)),
+    TERRACOTTA_WHITE(Color(0xD1B1A1)),
+    TERRACOTTA_ORANGE(Color(0x9F5224)),
+    TERRACOTTA_MAGENTA(Color(0x95576C)),
+    TERRACOTTA_LIGHT_BLUE(Color(0x706C8A)),
+    TERRACOTTA_YELLOW(Color(0xBA8524)),
+    TERRACOTTA_LIGHT_GREEN(Color(0x677535)),
+    TERRACOTTA_PINK(Color(0xA04D4E)),
+    TERRACOTTA_GRAY(Color(0x392923)),
+    TERRACOTTA_LIGHT_GRAY(Color(0x876B62)),
+    TERRACOTTA_CYAN(Color(0x575C5C)),
+    TERRACOTTA_PURPLE(Color(0x7A4958)),
+    TERRACOTTA_BLUE(Color(0x4C3E5C)),
+    TERRACOTTA_BROWN(Color(0x4C3223)),
+    TERRACOTTA_GREEN(Color(0x4C522A)),
+    TERRACOTTA_RED(Color(0x8E3C2E)),
+    TERRACOTTA_BLACK(Color(0x251610)),
+    CRIMSON_NYLIUM(Color(0xBD3031)),
+    CRIMSON_STEM(Color(0x943F61)),
+    CRIMSON_HYPHAE(Color(0x5C191D)),
+    WARPED_NYLIUM(Color(0x167E86)),
+    WARPED_STEM(Color(0x3A8E8C)),
+    WARPED_HYPHAE(Color(0x562C3E)),
+    WARPED_WART_BLOCK(Color(0x14B485)),
+    DEEPSLATE(Color(0x646464)),
+    RAW_IRON(Color(0xD8AF93)),
+    GLOW_LICHEN(Color(0x7FA796))
+}

@@ -24,12 +24,12 @@ class JULoggingProvider : LoggingProvider {
 
     override fun log(
         depth: Int, tag: String?, level: Level, exception: Throwable?,
-        formatter: MessageFormatter?, obj: Any?, vararg arguments: Any?,
+        formatter: MessageFormatter?, obj: Any?, vararg arguments: Any?
     ) = forward(level, exception, formatter, obj, arguments)
 
     override fun log(
         loggerClassName: String?, tag: String?, level: Level, exception: Throwable?,
-        formatter: MessageFormatter?, obj: Any?, vararg arguments: Any?,
+        formatter: MessageFormatter?, obj: Any?, vararg arguments: Any?
     ) = forward(level, exception, formatter, obj, arguments)
 
     override fun shutdown() {
