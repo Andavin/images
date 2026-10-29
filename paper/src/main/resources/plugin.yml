@@ -1,5 +1,5 @@
 name: Images
 version: '${version}'
-main: com.andavin.images.paper.ImagesPlugin
+main: com.andavin.images.ImagesPlugin
 authors: [ 'Andavin' ]
 api-version: '1.13'
