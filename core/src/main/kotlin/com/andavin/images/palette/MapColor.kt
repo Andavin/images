@@ -10,7 +10,7 @@ import java.awt.Color
  * Checked against the 26.3 server jar; also listed at
  * https://minecraft.wiki/w/Map_item_format#Base_colors.
  */
-internal enum class MapColor(val color: Color) {
+enum class MapColor(val color: Color) {
     NONE(Color(0, true)),
     GRASS(Color(0x7FB238)),
     SAND(Color(0xF7E9A3)),
