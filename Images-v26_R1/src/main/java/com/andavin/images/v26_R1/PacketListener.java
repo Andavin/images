@@ -28,8 +28,11 @@ import com.andavin.reflect.FieldMatcher;
 import com.andavin.reflect.MethodMatcher;
 import com.andavin.reflect.exception.UncheckedNoSuchMethodException;
 import com.andavin.util.Scheduler;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelPipeline;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.NoSuchElementException;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
@@ -59,6 +62,7 @@ import static com.andavin.reflect.Reflection.*;
  */
 class PacketListener extends com.andavin.images.PacketListener<ServerboundInteractPacket, ServerboundPickItemFromEntityPacket> {
 
+    private static final String PACKET_HANDLER = "packet_handler", IMAGE_HANDLER = "image_handler";
     private static final Method TRY_PICK_ITEM;
     private static final Field CONNECTION = findField(ServerCommonPacketListenerImpl.class, new FieldMatcher(Connection.class));
 
@@ -79,8 +83,23 @@ class PacketListener extends com.andavin.images.PacketListener<ServerboundIntera
     protected void setEntityListener(Player player, ImageListener listener) {
         ServerGamePacketListenerImpl connection = ((CraftPlayer) player).getHandle().connection;
         Connection internal = getFieldValue(CONNECTION, connection);
-        internal.channel.pipeline().addBefore("packet_handler", "image_handler",
-                new PlayerConnectionProxy(connection, listener, this));
+        Channel channel = internal.channel;
+        // The player may have left before this delayed task ran
+        if (channel == null || !channel.isOpen()) {
+            return;
+        }
+
+        ChannelPipeline pipeline = channel.pipeline();
+        if (pipeline.get(PACKET_HANDLER) == null || pipeline.get(IMAGE_HANDLER) != null) {
+            return;
+        }
+
+        try {
+            pipeline.addBefore(PACKET_HANDLER, IMAGE_HANDLER,
+                    new PlayerConnectionProxy(connection, listener, this));
+        } catch (NoSuchElementException | IllegalArgumentException e) {
+            // The channel closed or was changed while adding the handler
+        }
     }
 
     @Override
