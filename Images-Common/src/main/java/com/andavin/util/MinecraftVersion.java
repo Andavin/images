@@ -441,6 +441,11 @@ public enum MinecraftVersion {
         private static String matchVersion(String version, String original) {
 
             for (String suffix : PAPER_VERSION_SUFFIXES) { // Paper experimental versions
+                int buildIndex = version.indexOf(suffix + '.');
+                if (buildIndex != -1) { // With a build number (e.g. 26.3.build.12)
+                    version = version.substring(0, buildIndex);
+                }
+
                 if (version.endsWith(suffix)) {
                     version = version.substring(0, version.length() - suffix.length());
                 }
